@@ -1,6 +1,5 @@
 FROM tiangolo/uwsgi-nginx:python2.7
 
-USER root
 MAINTAINER Sebastian Ramirez <tiangolo@gmail.com>
 
 RUN pip install flask
