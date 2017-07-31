@@ -41,7 +41,7 @@ freeStyleJob("${folderName}/test") {
     }
     steps{
         // shell(readFileFromWorkspace('test.groovy'))
-        shell("echo ${test}")
+        shell("echo test")
     }
 }
 
@@ -54,7 +54,7 @@ freeStyleJob("${folderName}/build") {
 
     steps{
         // shell(readFileFromWorkspace('build.groovy'))
-        shell("echo ${build}")
+        shell("echo build")
     }
 }
 
@@ -63,7 +63,7 @@ freeStyleJob("${folderName}/deploy") {
 
     steps{
         // shell(readFileFromWorkspace('deploy.groovy'))
-        shell("echo ${deploy}")
+        shell("echo deploy")
     }
 
     triggers {
