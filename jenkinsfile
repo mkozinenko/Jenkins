@@ -1,25 +1,18 @@
 node {
-    def app
 
-    stage('Clone repository') {
-        /* Let's make sure we have the repository cloned to our workspace */
+    stage('test') {
+        build job: 'test', propagate: false
 
-        checkout scm
     }
 
-    stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
-
-        app = docker.build("kydybets/tessttt")
+    stage('Build') {
+        // input 'Do you want to proceed to the Deployment?'
+        build job: 'build', propagate: false
     }
 
-    stage('Test image') {
-        /* Ideally, we would run a test framework against our image.
-         * For this example, we're using a Volkswagen-type approach ;-) */
 
-        app.inside {
-            sh 'echo "Tests passed"'
-        }
-    }
+
+    stage('deploy') {
+            build job: 'deploy', propagate: false
+   }
 }
