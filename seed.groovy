@@ -7,7 +7,7 @@ import groovy.json.JsonSlurper
 def again = new JsonSlurper().parseText(readFileFromWorkspace('verai.json'))
 def folderName = again.Namefolder
 def giturl = again.gurl
-def cred = again.gcred
+// def cred = again.gcred
 
 
 folder("${folderName}") {
@@ -32,7 +32,7 @@ job("${folderName}/test") {
             git {
                 remote {
                     url("${giturl}")
-                    credentials("${cred}")
+                    // credentials("${cred}")
                 }
             }
         }
@@ -47,11 +47,11 @@ job("${folderName}/test") {
 
 job("${folderName}/build") {
     logRotator(-1, 10)
-    
+
     triggers {
         scm('H/2 * * * *')
     }
-    
+
     steps{
         shell(readFileFromWorkspace('build.groovy'))
     }
@@ -59,11 +59,11 @@ job("${folderName}/build") {
 
 job("${folderName}/deploy") {
     logRotator(-1, 10)
-    
+
     steps{
         shell(readFileFromWorkspace('deploy.groovy'))
     }
-    
+
     triggers {
         // githubPush()
         scm('H/2 * * * *')
