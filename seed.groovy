@@ -16,7 +16,7 @@ folder("${folderName}") {
 }
 
 
-multibranchWorkflowJob("${folderName}/${folderName}-pipeline") {
+multiJob("${folderName}/${folderName}-pipeline") {
     definition {
         cps {
             script(readFileFromWorkspace('jenkinsfile'))
@@ -40,8 +40,8 @@ job("${folderName}/test") {
         scm('H/2 * * * *')
     }
     steps{
-        shell(readFileFromWorkspace('test.groovy'))
-        //shell("echo ${test}")
+        // shell(readFileFromWorkspace('test.groovy'))
+        shell("echo ${test}")
     }
 }
 
@@ -53,7 +53,8 @@ job("${folderName}/build") {
     }
 
     steps{
-        shell(readFileFromWorkspace('build.groovy'))
+        // shell(readFileFromWorkspace('build.groovy'))
+        shell("echo ${build}")
     }
 }
 
@@ -61,7 +62,8 @@ job("${folderName}/deploy") {
     logRotator(-1, 10)
 
     steps{
-        shell(readFileFromWorkspace('deploy.groovy'))
+        // shell(readFileFromWorkspace('deploy.groovy'))
+        shell("echo ${deploy}")
     }
 
     triggers {
