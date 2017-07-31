@@ -1,7 +1,7 @@
 {
 
       "Namefolder" : "Demo2",
-      "gurl" : "http://172.31.114.190/root/jenkins.git",
-      "gcred" : "00834ac1-b86d-499e-b77f-6ab52b39a0b1"
+      "gurl" : "https://github.com/Kydybets/Jenkins.git",
+      //"gcred" : "00834ac1-b86d-499e-b77f-6ab52b39a0b1"
       
 }
