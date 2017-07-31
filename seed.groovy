@@ -16,7 +16,7 @@ folder("${folderName}") {
 }
 
 
-multibranchPipelineJob("${folderName}/${folderName}-pipeline") {
+multibranchWorkflowJob("${folderName}/${folderName}-pipeline") {
     definition {
         cps {
             script(readFileFromWorkspace('jenkinsfile'))
