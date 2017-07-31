@@ -16,7 +16,7 @@ folder("${folderName}") {
 }
 
 
-multiJob("${folderName}/${folderName}-pipeline") {
+pipelineJob("${folderName}/${folderName}-pipeline") {
     definition {
         cps {
             script(readFileFromWorkspace('jenkinsfile'))
@@ -26,7 +26,7 @@ multiJob("${folderName}/${folderName}-pipeline") {
 }
 
 
-job("${folderName}/test") {
+freeStyleJob("${folderName}/test") {
     logRotator(-1, 10)
     scm {
             git {
@@ -45,7 +45,7 @@ job("${folderName}/test") {
     }
 }
 
-job("${folderName}/build") {
+freeStyleJob("${folderName}/build") {
     logRotator(-1, 10)
 
     triggers {
@@ -58,7 +58,7 @@ job("${folderName}/build") {
     }
 }
 
-job("${folderName}/deploy") {
+freeStyleJob("${folderName}/deploy") {
     logRotator(-1, 10)
 
     steps{
