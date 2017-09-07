@@ -1,19 +1,24 @@
 pipeline {
   stages {
     stage('test') {
+      steps {
         build job: 'test', propagate: false
-
+      }
     }
 
     stage('Build') {
+      steps {
         // input 'Do you want to proceed to the Deployment?'
         build job: 'build', propagate: false
+      }
     }
 
 
 
     stage('deploy') {
+      steps {
         build job: 'deploy', propagate: false
-   }
- }
+      }
+    }
+  }
 }
