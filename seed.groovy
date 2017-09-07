@@ -27,7 +27,7 @@ pipelineJob("${folderName}/${folderName}-pipeline") {
 
 
 freeStyleJob("${folderName}/test") {
-    logRotator(-1, 10)
+    // logRotator(-1, 10)
     scm {
             git {
                 remote {
@@ -36,9 +36,9 @@ freeStyleJob("${folderName}/test") {
                 }
             }
         }
-    triggers {
-        scm('H/2 * * * *')
-    }
+    // triggers {
+    //     scm('H/2 * * * *')
+    // }
     steps{
         shell(readFileFromWorkspace('stages/test.groovy'))
         // shell("echo test")
@@ -46,11 +46,11 @@ freeStyleJob("${folderName}/test") {
 }
 
 freeStyleJob("${folderName}/build") {
-    logRotator(-1, 10)
-
-    triggers {
-        scm('H/2 * * * *')
-    }
+    // logRotator(-1, 10)
+    //
+    // triggers {
+    //     scm('H/2 * * * *')
+    // }
 
     steps{
         shell(readFileFromWorkspace('stages/build.groovy'))
@@ -59,15 +59,15 @@ freeStyleJob("${folderName}/build") {
 }
 
 freeStyleJob("${folderName}/deploy") {
-    logRotator(-1, 10)
+    // logRotator(-1, 10)
 
     steps{
         shell(readFileFromWorkspace('stages/deploy.groovy'))
         // shell("echo deploy")
     }
 
-    triggers {
-        // githubPush()
-        // scm('H/2 * * * *')
-    }
+    // triggers {
+    //     githubPush()
+    //     scm('H/2 * * * *')
+    // }
 }
