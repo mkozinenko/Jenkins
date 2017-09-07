@@ -40,7 +40,7 @@ freeStyleJob("${folderName}/test") {
         scm('H/2 * * * *')
     }
     steps{
-        shell(readFileFromWorkspace('/stages/test.groovy'))
+        shell(readFileFromWorkspace('stages/test.groovy'))
         // shell("echo test")
     }
 }
@@ -53,7 +53,7 @@ freeStyleJob("${folderName}/build") {
     }
 
     steps{
-        shell(readFileFromWorkspace('/stages/build.groovy'))
+        shell(readFileFromWorkspace('stages/build.groovy'))
         // shell("echo build")
     }
 }
@@ -62,7 +62,7 @@ freeStyleJob("${folderName}/deploy") {
     logRotator(-1, 10)
 
     steps{
-        shell(readFileFromWorkspace('/stages/deploy.groovy'))
+        shell(readFileFromWorkspace('stages/deploy.groovy'))
         // shell("echo deploy")
     }
 
