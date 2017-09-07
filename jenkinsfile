@@ -1,5 +1,5 @@
-node {
-
+pipeline {
+  stages {
     stage('test') {
         build job: 'test', propagate: false
 
@@ -15,4 +15,5 @@ node {
     stage('deploy') {
         build job: 'deploy', propagate: false
    }
+ }
 }
