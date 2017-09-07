@@ -40,8 +40,8 @@ freeStyleJob("${folderName}/test") {
         scm('H/2 * * * *')
     }
     steps{
-        // shell(readFileFromWorkspace('test.groovy'))
-        shell("echo test")
+        shell(readFileFromWorkspace('/stages/test.groovy'))
+        // shell("echo test")
     }
 }
 
@@ -53,8 +53,8 @@ freeStyleJob("${folderName}/build") {
     }
 
     steps{
-        // shell(readFileFromWorkspace('build.groovy'))
-        shell("echo build")
+        shell(readFileFromWorkspace('/stages/build.groovy'))
+        // shell("echo build")
     }
 }
 
@@ -62,12 +62,12 @@ freeStyleJob("${folderName}/deploy") {
     logRotator(-1, 10)
 
     steps{
-        // shell(readFileFromWorkspace('deploy.groovy'))
-        shell("echo deploy")
+        shell(readFileFromWorkspace('/stages/deploy.groovy'))
+        // shell("echo deploy")
     }
 
     triggers {
         // githubPush()
-        scm('H/2 * * * *')
+        // scm('H/2 * * * *')
     }
 }

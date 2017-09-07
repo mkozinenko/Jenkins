@@ -13,6 +13,6 @@ node {
 
 
     stage('deploy') {
-            build job: 'deploy', propagate: false
+        build job: 'deploy', propagate: false
    }
 }
